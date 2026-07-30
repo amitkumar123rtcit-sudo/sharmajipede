@@ -1,22 +1,12 @@
-<!-- ===========================
-Sharma Ji Pede Ki Dukaan
-index.html - Part 1
-=========================== -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sharma Ji Pede Ki Dukaan | Famous Pure Khoya Peda of Ghormara</title>
-
-<meta name="description" content="Famous Pure Khoya Peda of Ghormara. Fresh handmade peda, festival gift packing, pure khoya sweets.">
-
-<meta name="keywords" content="Khoya Peda, Ghormara, Sharma Ji Pede Ki Dukaan, Pure Khoya Peda">
+<title>Sharma Ji Pede Ki Dukaan | Famous Pure Khoya Peda</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -24,17 +14,20 @@ index.html - Part 1
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
 <body>
 
-<!-- LOADER -->
+<!-- Loader -->
 
 <div class="loader">
+
+<div class="loader-logo">
 
 <h1>Sharma Ji</h1>
 
@@ -42,15 +35,65 @@ index.html - Part 1
 
 </div>
 
-<!-- HEADER -->
+</div>
 
-<header>
+<!-- Top Bar -->
+
+<div class="top-bar">
 
 <div class="container">
 
+<div class="left">
+
+<a href="tel:8210246068">
+<i class="fa-solid fa-phone"></i>
+8210246068
+</a>
+
+<a href="mailto:sharmapedeghormara@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+sharmapedeghormara@gmail.com
+</a>
+
+</div>
+
+<div class="center">
+
+Famous Pure Khoya Peda of Ghormara
+
+</div>
+
+<div class="right">
+
+<span>Follow Us</span>
+
+<a href="https://www.instagram.com/__amit__sharma__6">
+<i class="fab fa-instagram"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Header -->
+
+<header>
+
+<div class="container navbar">
+
 <a href="#" class="logo">
 
-Sharma Ji
+<img src="Shop_.png" alt="Logo">
+
+<div>
+
+<h2>Sharma Ji</h2>
+
+<p>Pede Ki Dukaan</p>
+
+</div>
 
 </a>
 
@@ -58,7 +101,7 @@ Sharma Ji
 
 <ul>
 
-<li><a href="#">Home</a></li>
+<li><a href="#home">Home</a></li>
 
 <li><a href="#about">About</a></li>
 
@@ -66,25 +109,25 @@ Sharma Ji
 
 <li><a href="#gallery">Gallery</a></li>
 
+<li><a href="#reviews">Reviews</a></li>
+
 <li><a href="#contact">Contact</a></li>
 
 </ul>
 
 </nav>
 
-<div class="header-btn">
-
-<a href="tel:8210246068">
+<a href="tel:8210246068" class="order-btn">
 
 <i class="fa-solid fa-phone"></i>
 
-</a>
-
-<a href="https://wa.me/918210246068">
-
-<i class="fa-brands fa-whatsapp"></i>
+Order Now
 
 </a>
+
+<div class="menu-btn">
+
+<i class="fa-solid fa-bars"></i>
 
 </div>
 
@@ -92,51 +135,119 @@ Sharma Ji
 
 </header>
 
-<!-- HERO -->
+<!-- Hero Slider -->
 
-<section class="hero">
+<section class="hero" id="home">
 
-<img src="Banner_.png" class="hero-bg">
+<div class="hero-slider">
 
-<div class="overlay"></div>
+<div class="slide active">
 
-<div class="hero-content">
+<img src="Banner_.png" alt="Banner">
 
-<span>
+</div>
 
-✨ Since 2015 • Pure Khoya • Handmade
+<div class="slide">
 
-</span>
+<img src="Shop banner 2.jpg" alt="Banner">
 
-<h1>
+</div>
+        <div class="slide">
 
-Famous Pure <br>
+            <img src="Peda.png" alt="Fresh Khoya Peda">
 
-Khoya Peda <br>
+        </div>
 
-of Ghormara
+    </div>
 
-</h1>
+    <div class="hero-overlay"></div>
 
-<p>
+    <div class="container hero-content">
 
-Experience the authentic taste of fresh handmade Pure Khoya Peda prepared with tradition, purity and premium quality ingredients.
+        <span class="tag">
+            Traditional Taste, Pure & Fresh
+        </span>
 
-</p>
+        <h1>
+            Famous Pure Khoya <br>
+            <span>Peda of Ghormara</span>
+        </h1>
 
-<div class="hero-buttons">
+        <p>
+            Made with Pure Khoya, Desi Ghee and Traditional Recipe.
+            Freshly prepared every day with authentic taste.
+        </p>
 
-<a href="https://wa.me/918210246068">
+        <div class="hero-buttons">
 
-Order Now
+            <a href="#products" class="btn primary">
+                Order Now
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
 
-</a>
+            <a href="#gallery" class="btn secondary">
+                View Gallery
+            </a>
 
-<a href="https://maps.app.goo.gl/hEAnCoMzQyexWEMd8">
+        </div>
 
-Visit Shop
+    </div>
 
-</a>
+    <div class="slider-dots">
+
+        <span class="dot active"></span>
+
+        <span class="dot"></span>
+
+        <span class="dot"></span>
+
+    </div>
+
+</section>
+
+<!-- Features -->
+
+<section class="features">
+
+<div class="container feature-grid">
+
+<div class="feature-card">
+
+<i class="fa-solid fa-seedling"></i>
+
+<h3>Pure Khoya</h3>
+
+<p>Made from 100% fresh milk.</p>
+
+</div>
+
+<div class="feature-card">
+
+<i class="fa-solid fa-award"></i>
+
+<h3>Traditional Taste</h3>
+
+<p>Authentic recipe since years.</p>
+
+</div>
+
+<div class="feature-card">
+
+<i class="fa-solid fa-box"></i>
+
+<h3>Hygienic Packing</h3>
+
+<p>Fresh & safe packaging.</p>
+
+</div>
+
+<div class="feature-card">
+
+<i class="fa-solid fa-heart"></i>
+
+<h3>Loved By Customers</h3>
+
+<p>Thousands of happy families.</p>
 
 </div>
 
@@ -144,52 +255,74 @@ Visit Shop
 
 </section>
 
-<!-- TRUST SECTION -->
+<!-- Products -->
 
-<section class="trust">
+<section id="products" class="products">
 
-<div class="trust-box">
+<div class="container">
 
-<h2>10+</h2>
+<div class="section-title">
 
-<p>Years Experience</p>
+<span>Our Special Products</span>
 
-</div>
-
-<div class="trust-box">
-
-<h2>50K+</h2>
-
-<p>Happy Customers</p>
+<h2>Delicious Fresh Peda</h2>
 
 </div>
 
-<div class="trust-box">
+<div class="product-grid">
 
-<h2>100%</h2>
+<div class="product-card">
 
-<p>Pure Khoya</p>
+<img src="Peda.png" alt="Khoya Peda">
+
+<h3>Pure Khoya Peda</h3>
+
+<p>Fresh handmade khoya peda.</p>
+
+<h4>₹600 / Kg</h4>
+
+<a href="tel:8210246068">Order Now</a>
 
 </div>
 
-<div class="trust-box">
+<div class="product-card">
 
-<h2>365</h2>
+<img src="Gift.png" alt="Gift Box">
 
-<p>Fresh Everyday</p>
+<h3>Festival Gift Box</h3>
+
+<p>Perfect for gifting.</p>
+
+<h4>₹750 / Box</h4>
+
+<a href="tel:8210246068">Order Now</a>
 
 </div>
+
+<div class="product-card">
+
+<img src="Peda.png" alt="Temple Prasad">
+
+<h3>Temple Prasad Pack</h3>
+
+<p>Fresh packed prasad.</p>
+
+<h4>₹300 / Pack</h4>
+
+<a href="tel:8210246068">Order Now</a>
+
+</div>
+        </div>
+
+    </div>
 
 </section>
 
-<!-- ABOUT START -->
-<!-- ===========================
-ABOUT SECTION
-=========================== -->
+<!-- ================= ABOUT ================= -->
 
 <section class="about" id="about">
 
-<div class="container">
+<div class="container about-grid">
 
 <div class="about-image">
 
@@ -199,89 +332,58 @@ ABOUT SECTION
 
 <div class="about-content">
 
-<span class="sub-title">
+<span>About Our Shop</span>
 
-ABOUT US
-
-</span>
-
-<h2>
-
-Traditional Taste.<br>
-
-Premium Quality.
-
-</h2>
+<h2>Authentic Taste Since Years</h2>
 
 <p>
 
-Welcome to <strong>Sharma Ji Pede Ki Dukaan</strong>, one of the most trusted sweet shops in Ghormara. We prepare our famous Pure Khoya Peda every day using fresh khoya and traditional methods to preserve the authentic taste loved by generations.
+Sharma Ji Pede Ki Dukaan is famous for its Pure Khoya Peda
+prepared with fresh milk, pure khoya and traditional methods.
+Our sweets are loved by customers for their rich taste,
+quality and freshness.
 
 </p>
 
-<div class="about-features">
-
-<div class="feature">
-
-<i class="fa-solid fa-award"></i>
+<div class="about-points">
 
 <div>
 
-<h4>Premium Quality</h4>
+<i class="fa-solid fa-check"></i>
 
-<p>Made with carefully selected pure khoya.</p>
-
-</div>
+100% Pure Khoya
 
 </div>
-
-<div class="feature">
-
-<i class="fa-solid fa-heart"></i>
 
 <div>
 
-<h4>Traditional Recipe</h4>
+<i class="fa-solid fa-check"></i>
 
-<p>Authentic handmade taste with rich flavour.</p>
-
-</div>
+Fresh Everyday
 
 </div>
-
-<div class="feature">
-
-<i class="fa-solid fa-box-open"></i>
 
 <div>
 
-<h4>Gift Packing</h4>
+<i class="fa-solid fa-check"></i>
 
-<p>Beautiful packing available for every occasion.</p>
-
-</div>
+Premium Quality
 
 </div>
-
-<div class="feature">
-
-<i class="fa-solid fa-store"></i>
 
 <div>
 
-<h4>Trusted Shop</h4>
+<i class="fa-solid fa-check"></i>
 
-<p>Serving thousands of happy customers.</p>
-
-</div>
+Festival Special Packing
 
 </div>
 
 </div>
 
-<a href="#products" class="about-btn">
+<a href="#contact" class="about-btn">
 
-Explore Products
+Visit Our Shop
 
 </a>
 
@@ -291,176 +393,17 @@ Explore Products
 
 </section>
 
-<!-- ===========================
-FEATURED PRODUCTS
-=========================== -->
-
-<section class="products" id="products">
-
-<div class="section-title">
-
-<span>OUR PRODUCTS</span>
-
-<h2>
-
-Freshly Prepared Every Day
-
-</h2>
-
-</div>
-
-<div class="product-grid">
-
-<div class="product-card">
-
-<img src="Peda.png" alt="Pure Khoya Peda">
-
-<div class="product-info">
-
-<h3>Pure Khoya Peda</h3>
-
-<p>
-
-Soft, fresh and prepared daily using premium quality khoya.
-
-</p>
-
-<a href="#contact">
-
-Order Now
-
-</a>
-
-</div>
-
-</div>
-
-<div class="product-card">
-
-<img src="Gift.png" alt="Festival Gift Box">
-
-<div class="product-info">
-
-<h3>Festival Gift Box</h3>
-
-<p>
-
-Elegant gift packing for festivals, weddings and special occasions.
-
-</p>
-
-<a href="#contact">
-
-Book Now
-
-</a>
-
-</div>
-
-</div>
-
-<div class="product-card">
-
-<img src="Shop banner 2.jpg" alt="Visit Our Shop">
-
-<div class="product-info">
-
-<h3>Visit Our Shop</h3>
-
-<p>
-
-Enjoy the authentic taste directly from our shop in Ghormara.
-
-</p>
-
-<a href="#contact">
-
-Visit Today
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===========================
-WHY CHOOSE US START
-=========================== -->
-<!-- ===========================
-WHY CHOOSE US
-=========================== -->
-
-<section class="why">
-
-<div class="section-title">
-
-<span>WHY CHOOSE US</span>
-
-<h2>Why Customers Love Our Peda</h2>
-
-</div>
-
-<div class="why-grid">
-
-<div class="why-card">
-
-<i class="fa-solid fa-certificate"></i>
-
-<h3>100% Pure Khoya</h3>
-
-<p>Prepared using fresh and premium quality khoya.</p>
-
-</div>
-
-<div class="why-card">
-
-<i class="fa-solid fa-sun"></i>
-
-<h3>Fresh Every Day</h3>
-
-<p>Every peda is made fresh daily for the best taste.</p>
-
-</div>
-
-<div class="why-card">
-
-<i class="fa-solid fa-gift"></i>
-
-<h3>Festival Packing</h3>
-
-<p>Premium gift boxes for festivals and special occasions.</p>
-
-</div>
-
-<div class="why-card">
-
-<i class="fa-solid fa-users"></i>
-
-<h3>Trusted Since Years</h3>
-
-<p>Thousands of happy customers trust our quality.</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===========================
-GALLERY
-=========================== -->
+<!-- ================= GALLERY ================= -->
 
 <section class="gallery" id="gallery">
 
+<div class="container">
+
 <div class="section-title">
 
-<span>OUR GALLERY</span>
+<span>Our Gallery</span>
 
-<h2>Inside Sharma Ji Pede Ki Dukaan</h2>
+<h2>Sweet Moments</h2>
 
 </div>
 
@@ -468,33 +411,37 @@ GALLERY
 
 <img src="Banner_.png" alt="Banner">
 
+<img src="Shop banner 2.jpg" alt="Shop">
+
 <img src="Shop_.png" alt="Shop">
 
 <img src="Peda.png" alt="Peda">
 
-<img src="Gift.png" alt="Gift">
+<img src="Gift.png" alt="Gift Box">
 
-<img src="Shop banner 2.jpg" alt="Shop">
+<img src="Peda.png" alt="Sweet">
+
+</div>
 
 </div>
 
 </section>
 
-<!-- ===========================
-CUSTOMER REVIEWS
-=========================== -->
+<!-- ================= REVIEWS ================= -->
 
-<section class="reviews">
+<section class="reviews" id="reviews">
+
+<div class="container">
 
 <div class="section-title">
 
-<span>REVIEWS</span>
+<span>Customer Reviews</span>
 
-<h2>What Customers Say</h2>
+<h2>What Our Customers Say</h2>
 
 </div>
 
-<div class="review-grid">
+<div class="review-slider">
 
 <div class="review-card">
 
@@ -502,7 +449,8 @@ CUSTOMER REVIEWS
 
 <p>
 
-Best Pure Khoya Peda in Ghormara. Fresh taste and excellent quality.
+The best Pure Khoya Peda in Ghormara.
+Fresh, soft and delicious.
 
 </p>
 
@@ -516,11 +464,12 @@ Best Pure Khoya Peda in Ghormara. Fresh taste and excellent quality.
 
 <p>
 
-Premium quality sweets with beautiful gift packing.
+Excellent quality and beautiful gift packing.
+Highly recommended.
 
 </p>
 
-<h4>Festival Customer</h4>
+<h4>Festival Buyer</h4>
 
 </div>
 
@@ -530,11 +479,14 @@ Premium quality sweets with beautiful gift packing.
 
 <p>
 
-Highly recommended for Prasad and family celebrations.
+Authentic traditional taste.
+Will definitely visit again.
 
 </p>
 
-<h4>Regular Visitor</h4>
+<h4>Regular Customer</h4>
+
+</div>
 
 </div>
 
@@ -542,42 +494,29 @@ Highly recommended for Prasad and family celebrations.
 
 </section>
 
-<!-- ===========================
-CONTACT START
-=========================== -->
-<!-- ===========================
-CONTACT
-=========================== -->
+<!-- ================= CONTACT START ================= -->
+  <section class="contact" id="contact">
 
-<section class="contact" id="contact">
-
-<div class="container">
+<div class="container contact-grid">
 
 <div class="contact-info">
 
-<span>CONTACT US</span>
+<span>Visit Our Shop</span>
 
-<h2>Visit Our Shop Today</h2>
+<h2>Sharma Ji Pede Ki Dukaan</h2>
 
 <p>
 
-Experience the authentic taste of Famous Pure Khoya Peda of Ghormara.
+Famous Pure Khoya Peda of Ghormara.
+Fresh sweets prepared every day with premium quality ingredients.
 
 </p>
-
-<div class="info-box">
 
 <div class="info">
 
 <i class="fa-solid fa-location-dot"></i>
 
-<div>
-
-<h4>Address</h4>
-
 <p>Ghormara, Jharkhand, India</p>
-
-</div>
 
 </div>
 
@@ -585,15 +524,15 @@ Experience the authentic taste of Famous Pure Khoya Peda of Ghormara.
 
 <i class="fa-solid fa-phone"></i>
 
-<div>
-
-<h4>Call Us</h4>
-
 <p>+91 8210246068</p>
 
-<p>+91 8002707127</p>
-
 </div>
+
+<div class="info">
+
+<i class="fa-solid fa-phone"></i>
+
+<p>+91 8002707127</p>
 
 </div>
 
@@ -601,15 +540,7 @@ Experience the authentic taste of Famous Pure Khoya Peda of Ghormara.
 
 <i class="fa-brands fa-instagram"></i>
 
-<div>
-
-<h4>Instagram</h4>
-
 <p>@__amit__sharma__6</p>
-
-</div>
-
-</div>
 
 </div>
 
@@ -617,23 +548,27 @@ Experience the authentic taste of Famous Pure Khoya Peda of Ghormara.
 
 <a href="tel:8210246068" class="call-btn">
 
+<i class="fa-solid fa-phone"></i>
+
 Call Now
 
 </a>
 
 <a href="https://wa.me/918210246068" target="_blank" class="whatsapp-btn">
 
+<i class="fa-brands fa-whatsapp"></i>
+
 WhatsApp
 
 </a>
 
-<a href="https://maps.app.goo.gl/hEAnCoMzQyexWEMd8" target="_blank" class="map-btn">
-
-Get Directions
-
-</a>
+</div>
 
 </div>
+
+<div class="contact-image">
+
+<img src="Shop banner 2.jpg" alt="Sharma Ji Shop">
 
 </div>
 
@@ -641,25 +576,37 @@ Get Directions
 
 </section>
 
-<!-- ===========================
-FOOTER
-=========================== -->
+<!-- Floating Buttons -->
+
+<a href="tel:8210246068" class="float-call">
+
+<i class="fa-solid fa-phone"></i>
+
+</a>
+
+<a href="https://wa.me/918210246068" class="float-whatsapp" target="_blank">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<!-- Footer -->
 
 <footer>
 
 <div class="container">
 
+<div class="footer-logo">
+
 <h2>Sharma Ji Pede Ki Dukaan</h2>
 
-<p>
+<p>Famous Pure Khoya Peda of Ghormara</p>
 
-Famous Pure Khoya Peda of Ghormara
-
-</p>
+</div>
 
 <div class="footer-links">
 
-<a href="#">Home</a>
+<a href="#home">Home</a>
 
 <a href="#about">About</a>
 
@@ -667,21 +614,23 @@ Famous Pure Khoya Peda of Ghormara
 
 <a href="#gallery">Gallery</a>
 
+<a href="#reviews">Reviews</a>
+
 <a href="#contact">Contact</a>
 
 </div>
 
-<div class="social-icons">
+<div class="footer-social">
 
-<a href="https://www.instagram.com/__amit__sharma__6/" target="_blank">
+<a href="https://www.instagram.com/__amit__sharma__6" target="_blank">
 
-<i class="fa-brands fa-instagram"></i>
+<i class="fab fa-instagram"></i>
 
 </a>
 
 <a href="https://wa.me/918210246068" target="_blank">
 
-<i class="fa-brands fa-whatsapp"></i>
+<i class="fab fa-whatsapp"></i>
 
 </a>
 
