@@ -1,175 +1,72 @@
-//==========================
-// SHARMA JI PEDE KI DUKAAN
-// Premium Script v2.0
-//==========================
+/*========================================================
+Sharma Ji Pede Ki Dukaan
+Premium script.js
+========================================================*/
 
-//========== LOADER ==========//
+/*========== LOADER ==========*/
 
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
-const loader = document.querySelector(".loader");
+const loader=document.querySelector(".loader");
 
-setTimeout(() => {
+if(loader){
 
-loader.style.opacity = "0";
-loader.style.visibility = "hidden";
+setTimeout(()=>{
+
+loader.style.opacity="0";
+loader.style.visibility="hidden";
 
 },1200);
 
-});
-
-//========== MOBILE MENU ==========//
-
-const menuBtn = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
-
-menuBtn.addEventListener("click",()=>{
-
-navLinks.classList.toggle("active");
-
-if(navLinks.classList.contains("active")){
-
-menuBtn.innerHTML='<i class="fa-solid fa-xmark"></i>';
-
-}else{
-
-menuBtn.innerHTML='<i class="fa-solid fa-bars"></i>';
-
 }
 
 });
 
-//========== CLOSE MENU ==========//
+/*========== STICKY HEADER ==========*/
 
-document.querySelectorAll(".nav-links a").forEach(link=>{
-
-link.addEventListener("click",()=>{
-
-navLinks.classList.remove("active");
-
-menuBtn.innerHTML='<i class="fa-solid fa-bars"></i>';
-
-});
-
-});
-
-//========== STICKY NAVBAR ==========//
+const header=document.querySelector("header");
 
 window.addEventListener("scroll",()=>{
 
-const navbar=document.querySelector(".navbar");
+if(window.scrollY>80){
 
-if(window.scrollY>60){
-
-navbar.style.background="#111";
-navbar.style.boxShadow="0 10px 30px rgba(0,0,0,.35)";
+header.classList.add("sticky");
 
 }else{
 
-navbar.style.background="rgba(0,0,0,.45)";
-navbar.style.boxShadow="none";
+header.classList.remove("sticky");
 
 }
 
 });
 
-//========== HERO COUNTER ==========//
+/*========== ACTIVE MENU ==========*/
 
-const counters=document.querySelectorAll(".hero-stats h2");
+const sections=document.querySelectorAll("section[id]");
+const navLinks=document.querySelectorAll("nav a");
 
-counters.forEach(counter=>{
-
-const update=()=>{
-
-const text=counter.innerText;
-const number=parseInt(text.replace(/\D/g,""));
-
-let current=+counter.getAttribute("data-count")||0;
-
-const step=Math.max(1,Math.ceil(number/80));
-
-if(current<number){
-
-current+=step;
-
-if(current>number) current=number;
-
-counter.setAttribute("data-count",current);
-
-if(text.includes("+")){
-
-counter.innerText=current+"+";
-
-}else if(text.includes("%")){
-
-counter.innerText=current+"%";
-
-}else{
-
-counter.innerText=current;
-
-}
-
-setTimeout(update,20);
-
-}
-
-};
-
-update();
-
-});
-
-//========== SCROLL ANIMATION ==========//
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-},{threshold:.15});
-
-document.querySelectorAll(".feature-card,.product-card,.gallery-item,.review-card,.exp-card").forEach(el=>{
-
-el.classList.add("hidden");
-
-observer.observe(el);
-
-});
-
-//========== ACTIVE NAV LINK ==========//
-
-const sections=document.querySelectorAll("section");
-const links=document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll",()=>{
+function activeMenu(){
 
 let current="";
 
-sections.forEach(section=>{
+sections.forEach(sec=>{
 
-const top=section.offsetTop-120;
+const top=sec.offsetTop-150;
+const height=sec.offsetHeight;
 
-if(pageYOffset>=top){
+if(scrollY>=top && scrollY<top+height){
 
-current=section.getAttribute("id");
+current=sec.getAttribute("id");
 
 }
 
 });
 
-links.forEach(link=>{
+navLinks.forEach(link=>{
 
 link.classList.remove("active");
 
-if(link.getAttribute("href")=="#"+current){
+if(link.getAttribute("href")==="#"+current){
 
 link.classList.add("active");
 
@@ -177,21 +74,171 @@ link.classList.add("active");
 
 });
 
+}
+
+window.addEventListener("scroll",activeMenu);
+
+/*========== COUNTER ==========*/
+
+const counters=document.querySelectorAll(".trust-box h2");
+
+let started=false;
+
+function counterRun(){
+
+counters.forEach(counter=>{
+
+const target=parseInt(counter.innerText.replace(/\D/g,""));
+
+const symbol=counter.innerText.replace(/[0-9]/g,"");
+
+let count=0;
+
+const speed=Math.ceil(target/100);
+
+function update(){
+
+count+=speed;
+
+if(count>target) count=target;
+
+counter.innerText=count+symbol;
+
+if(count<target){
+
+requestAnimationFrame(update);
+
+}
+
+}
+
+update();
+
 });
 
-//========== SCROLL TO TOP ==========//
+}
+
+window.addEventListener("scroll",()=>{
+
+const trust=document.querySelector(".trust");
+
+if(!trust) return;
+
+if(trust.getBoundingClientRect().top<window.innerHeight-100 && !started){
+
+started=true;
+
+counterRun();
+
+}
+
+});
+
+/*========== REVEAL ==========*/
+
+const reveals=document.querySelectorAll(".product-card,.why-card,.review-card,.trust-box,.about-content,.about-image");
+
+reveals.forEach(el=>{
+
+el.style.opacity="0";
+el.style.transform="translateY(60px)";
+el.style.transition=".8s";
+
+});
+
+function reveal(){
+
+reveals.forEach(el=>{
+
+if(el.getBoundingClientRect().top<window.innerHeight-80){
+
+el.style.opacity="1";
+el.style.transform="translateY(0)";
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
+/*========== LIGHTBOX ==========*/
+
+const gallery=document.querySelectorAll(".gallery-grid img");
+
+const lightbox=document.createElement("div");
+
+lightbox.className="lightbox";
+
+document.body.appendChild(lightbox);
+
+gallery.forEach(img=>{
+
+img.onclick=()=>{
+
+lightbox.classList.add("active");
+
+lightbox.innerHTML=`
+<span class="close">&times;</span>
+<img src="${img.src}">
+`;
+
+document.body.style.overflow="hidden";
+
+document.querySelector(".close").onclick=()=>{
+
+lightbox.classList.remove("active");
+
+document.body.style.overflow="auto";
+
+};
+
+};
+
+});
+
+lightbox.onclick=e=>{
+
+if(e.target===lightbox){
+
+lightbox.classList.remove("active");
+
+document.body.style.overflow="auto";
+
+}
+
+};
+
+/*========== PARALLAX ==========*/
+
+window.addEventListener("scroll",()=>{
+
+const hero=document.querySelector(".hero-bg");
+
+if(hero){
+
+hero.style.transform=`translateY(${window.scrollY*0.25}px)`;
+
+}
+
+});
+
+/*========== BACK TO TOP ==========*/
 
 const topBtn=document.createElement("button");
 
-topBtn.innerHTML='<i class="fa-solid fa-arrow-up"></i>';
-
 topBtn.className="top-btn";
+
+topBtn.innerHTML="↑";
 
 document.body.appendChild(topBtn);
 
 window.addEventListener("scroll",()=>{
 
-topBtn.style.display=window.scrollY>500?"flex":"none";
+topBtn.classList.toggle("show",window.scrollY>500);
 
 });
 
@@ -207,44 +254,54 @@ behavior:"smooth"
 
 };
 
-//========== IMAGE LIGHTBOX ==========//
+/*========== SCROLL PROGRESS ==========*/
 
-const images=document.querySelectorAll(".gallery-item img");
+const progress=document.createElement("div");
 
-const lightbox=document.createElement("div");
+progress.className="scroll-progress";
 
-lightbox.className="lightbox";
+document.body.appendChild(progress);
 
-document.body.appendChild(lightbox);
+window.addEventListener("scroll",()=>{
 
-images.forEach(img=>{
+const total=document.documentElement.scrollHeight-window.innerHeight;
 
-img.addEventListener("click",()=>{
+const percent=(window.pageYOffset/total)*100;
 
-lightbox.classList.add("active");
-
-lightbox.innerHTML=`
-
-<img src="${img.src}">
-
-`;
+progress.style.width=percent+"%";
 
 });
 
+/*========== SMOOTH SCROLL ==========*/
+
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+
+link.onclick=function(e){
+
+e.preventDefault();
+
+const target=document.querySelector(this.getAttribute("href"));
+
+if(target){
+
+target.scrollIntoView({
+
+behavior:"smooth"
+
 });
-
-lightbox.addEventListener("click",()=>{
-
-lightbox.classList.remove("active");
-
-});
-
-//========== YEAR ==========//
-
-const year=document.querySelector(".year");
-
-if(year){
-
-year.innerHTML=new Date().getFullYear();
 
 }
+
+};
+
+});
+
+/*========== IMAGE DRAG OFF ==========*/
+
+document.querySelectorAll("img").forEach(img=>{
+
+img.draggable=false;
+
+});
+
+console.log("Premium Website Loaded Successfully");
