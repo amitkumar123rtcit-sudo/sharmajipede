@@ -1,3 +1,9 @@
+window.onload = function () {
+    const loader = document.querySelector(".loader");
+    if (loader) {
+        loader.style.display = "none";
+    }
+};
 /*=========================================
   Sharma Ji Pede Ki Dukaan
   Premium Script.js
