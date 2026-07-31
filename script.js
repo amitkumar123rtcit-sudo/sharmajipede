@@ -1,44 +1,43 @@
-/*=========================================
+/*======================================
 Sharma Ji Pede Ki Dukaan
-Premium Script.js
+Premium Script v2
 Part 1
-=========================================*/
+======================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-/*==============================
-PREMIUM LOADER
-==============================*/
+/*==========================
+LOADER
+==========================*/
 
-const loader = document.querySelector(".loader");
+const loader=document.querySelector(".loader");
 
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
-if(loader){
+setTimeout(()=>{
 
 loader.style.opacity="0";
-
 loader.style.visibility="hidden";
 
 setTimeout(()=>{
 
-loader.style.display="none";
+loader.remove();
 
-},600);
+},500);
 
-}
+},800);
 
 });
 
-/*==============================
+/*==========================
 STICKY HEADER
-==============================*/
+==========================*/
 
 const header=document.querySelector("header");
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>80){
+if(window.scrollY>60){
 
 header.classList.add("sticky");
 
@@ -50,15 +49,12 @@ header.classList.remove("sticky");
 
 });
 
-/*==============================
+/*==========================
 MOBILE MENU
-==============================*/
+==========================*/
 
 const menuBtn=document.querySelector(".menu-btn");
-
 const nav=document.querySelector("nav");
-
-if(menuBtn){
 
 menuBtn.addEventListener("click",()=>{
 
@@ -67,8 +63,6 @@ nav.classList.toggle("active");
 menuBtn.classList.toggle("active");
 
 });
-
-}
 
 document.querySelectorAll("nav a").forEach(link=>{
 
@@ -82,12 +76,11 @@ menuBtn.classList.remove("active");
 
 });
 
-/*==============================
-AUTO HERO SLIDER
-==============================*/
+/*==========================
+HERO SLIDER
+==========================*/
 
 const slides=document.querySelectorAll(".slide");
-
 const dots=document.querySelectorAll(".dot");
 
 let current=0;
@@ -95,16 +88,14 @@ let current=0;
 function showSlide(index){
 
 slides.forEach(slide=>slide.classList.remove("active"));
-
 dots.forEach(dot=>dot.classList.remove("active"));
 
 slides[index].classList.add("active");
-
 dots[index].classList.add("active");
 
 }
 
-function nextSlide(){
+function autoSlide(){
 
 current++;
 
@@ -118,7 +109,7 @@ showSlide(current);
 
 }
 
-setInterval(nextSlide,5000);
+setInterval(autoSlide,5000);
 
 dots.forEach((dot,index)=>{
 
@@ -132,9 +123,9 @@ showSlide(current);
 
 });
 
-/*==============================
+/*==========================
 SMOOTH SCROLL
-==============================*/
+==========================*/
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
@@ -157,45 +148,50 @@ behavior:"smooth"
 });
 
 });
-  /*=========================================
+  /*======================================
 Gallery Lightbox
 Reveal Animation
 Scroll Progress
 Back To Top
-=========================================*/
+======================================*/
 
-/*==============================
+/*==========================
 GALLERY LIGHTBOX
-==============================*/
+==========================*/
 
-const galleryImages = document.querySelectorAll(".gallery-grid img");
+const gallery=document.querySelectorAll(".gallery-item img");
 
-const lightbox = document.createElement("div");
+const lightbox=document.createElement("div");
 
-lightbox.className = "lightbox";
+lightbox.className="lightbox";
 
 document.body.appendChild(lightbox);
 
-galleryImages.forEach(img => {
+gallery.forEach(img=>{
 
-img.addEventListener("click", () => {
+img.addEventListener("click",()=>{
 
 lightbox.classList.add("active");
 
-lightbox.innerHTML = `
-<div class="lightbox-content">
-<span class="close-lightbox">&times;</span>
+lightbox.innerHTML=`
+
+<div class="lightbox-box">
+
+<span class="lightbox-close">&times;</span>
+
 <img src="${img.src}" alt="">
+
 </div>
+
 `;
 
-document.body.style.overflow = "hidden";
+document.body.style.overflow="hidden";
 
-document.querySelector(".close-lightbox").onclick = () => {
+document.querySelector(".lightbox-close").onclick=()=>{
 
 lightbox.classList.remove("active");
 
-document.body.style.overflow = "auto";
+document.body.style.overflow="auto";
 
 };
 
@@ -203,33 +199,35 @@ document.body.style.overflow = "auto";
 
 });
 
-lightbox.onclick = e => {
+lightbox.addEventListener("click",(e)=>{
 
-if (e.target === lightbox) {
+if(e.target===lightbox){
 
 lightbox.classList.remove("active");
 
-document.body.style.overflow = "auto";
+document.body.style.overflow="auto";
 
 }
 
-};
+});
 
-/*==============================
+/*==========================
 REVEAL ANIMATION
-==============================*/
+==========================*/
 
-const reveals = document.querySelectorAll(
-".feature-card,.product-card,.about-image,.about-content,.gallery-grid img,.review-card,.contact-info,.contact-image"
+const revealItems=document.querySelectorAll(
+
+".feature-card,.product-card,.about-image,.about-content,.gallery-item,.review-card,.contact-info,.contact-image"
+
 );
 
-function revealElements() {
+function reveal(){
 
-reveals.forEach(item => {
+revealItems.forEach(item=>{
 
-const top = item.getBoundingClientRect().top;
+const top=item.getBoundingClientRect().top;
 
-if (top < window.innerHeight - 100) {
+if(top<window.innerHeight-120){
 
 item.classList.add("show");
 
@@ -239,49 +237,49 @@ item.classList.add("show");
 
 }
 
-window.addEventListener("scroll", revealElements);
+window.addEventListener("scroll",reveal);
 
-revealElements();
+reveal();
 
-/*==============================
-SCROLL PROGRESS BAR
-==============================*/
+/*==========================
+SCROLL PROGRESS
+==========================*/
 
-const progress = document.createElement("div");
+const progress=document.createElement("div");
 
-progress.className = "scroll-progress";
+progress.className="scroll-progress";
 
 document.body.appendChild(progress);
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-const total = document.documentElement.scrollHeight - window.innerHeight;
+const total=document.documentElement.scrollHeight-window.innerHeight;
 
-const percent = (window.pageYOffset / total) * 100;
+const percent=(window.pageYOffset/total)*100;
 
-progress.style.width = percent + "%";
+progress.style.width=percent+"%";
 
 });
 
-/*==============================
+/*==========================
 BACK TO TOP
-==============================*/
+==========================*/
 
-const topBtn = document.createElement("button");
+const topBtn=document.createElement("button");
 
-topBtn.className = "top-btn";
+topBtn.className="top-btn";
 
-topBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+topBtn.innerHTML='<i class="fa-solid fa-arrow-up"></i>';
 
 document.body.appendChild(topBtn);
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-if (window.scrollY > 400) {
+if(window.scrollY>500){
 
 topBtn.classList.add("show");
 
-} else {
+}else{
 
 topBtn.classList.remove("show");
 
@@ -289,89 +287,93 @@ topBtn.classList.remove("show");
 
 });
 
-topBtn.addEventListener("click", () => {
+topBtn.addEventListener("click",()=>{
 
 window.scrollTo({
 
-top: 0,
+top:0,
 
-behavior: "smooth"
-
-});
+behavior:"smooth"
 
 });
-  /*=========================================
-Product Carousel
+
+});
+  /*======================================
+Active Menu
 Counter Animation
-Floating Effects
-Premium Finish
-=========================================*/
+Premium Effects
+Final Finish
+======================================*/
 
-/*==============================
-PRODUCT CAROUSEL
-==============================*/
+/*==========================
+ACTIVE NAVIGATION
+==========================*/
 
-const productGrid = document.querySelector(".product-grid");
+const sections=document.querySelectorAll("section[id]");
+const navLinks=document.querySelectorAll("nav ul li a");
 
-let carouselIndex = 0;
+function activeMenu(){
 
-function autoCarousel() {
+let current="";
 
-if (!productGrid) return;
+sections.forEach(section=>{
 
-const cards = productGrid.querySelectorAll(".product-card");
+const top=section.offsetTop-150;
+const height=section.offsetHeight;
 
-if (cards.length <= 1) return;
+if(window.scrollY>=top &&
+window.scrollY<top+height){
 
-carouselIndex++;
-
-if (carouselIndex >= cards.length) {
-
-carouselIndex = 0;
+current=section.id;
 
 }
 
-productGrid.scrollTo({
+});
 
-left: cards[carouselIndex].offsetLeft,
+navLinks.forEach(link=>{
 
-behavior: "smooth"
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
 
 });
 
 }
 
-setInterval(autoCarousel, 4000);
+window.addEventListener("scroll",activeMenu);
 
-/*==============================
+/*==========================
 COUNTER ANIMATION
-==============================*/
+==========================*/
 
-const counters = document.querySelectorAll(".counter");
+const counters=document.querySelectorAll(".counter");
+let counterStarted=false;
 
-let counterStarted = false;
+function startCounter(){
 
-function startCounter() {
+counters.forEach(counter=>{
 
-counters.forEach(counter => {
+const target=+counter.dataset.target;
 
-const target = Number(counter.dataset.target);
+let count=0;
 
-let value = 0;
+const speed=Math.max(1,Math.ceil(target/120));
 
-const speed = Math.ceil(target / 100);
+function update(){
 
-function update() {
+count+=speed;
 
-value += speed;
+if(count>=target){
 
-if (value >= target) {
+counter.innerText=target;
 
-counter.innerText = target;
+}else{
 
-} else {
-
-counter.innerText = value;
+counter.innerText=count;
 
 requestAnimationFrame(update);
 
@@ -385,15 +387,15 @@ update();
 
 }
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-const section = document.querySelector(".counter-section");
+const counterSection=document.querySelector(".counter-section");
 
-if (!section || counterStarted) return;
+if(counterSection &&
+!counterStarted &&
+counterSection.getBoundingClientRect().top<window.innerHeight-120){
 
-if (section.getBoundingClientRect().top < window.innerHeight - 120) {
-
-counterStarted = true;
+counterStarted=true;
 
 startCounter();
 
@@ -401,89 +403,8 @@ startCounter();
 
 });
 
-/*==============================
-FLOATING EFFECTS
-==============================*/
+/*==========================
+IMAGE OPTIMIZATION
+==========================*/
 
-const heroImage = document.querySelector(".hero-content");
-
-if (heroImage) {
-
-window.addEventListener("mousemove", e => {
-
-const x = (window.innerWidth / 2 - e.clientX) / 40;
-
-const y = (window.innerHeight / 2 - e.clientY) / 40;
-
-heroImage.style.transform = `translate(${x}px,${y}px)`;
-
-});
-
-}
-
-/*==============================
-IMAGE DRAG OFF
-==============================*/
-
-document.querySelectorAll("img").forEach(img => {
-
-img.draggable = false;
-
-img.loading = "lazy";
-
-});
-
-/*==============================
-ACTIVE MENU
-==============================*/
-
-const sections = document.querySelectorAll("section[id]");
-
-const navLinks = document.querySelectorAll("nav a");
-
-window.addEventListener("scroll", () => {
-
-let current = "";
-
-sections.forEach(sec => {
-
-const top = sec.offsetTop - 150;
-
-const height = sec.offsetHeight;
-
-if (window.scrollY >= top &&
-window.scrollY < top + height) {
-
-current = sec.id;
-
-}
-
-});
-
-navLinks.forEach(link => {
-
-link.classList.remove("active");
-
-if (link.getAttribute("href") === "#" + current) {
-
-link.classList.add("active");
-
-}
-
-});
-
-});
-
-/*==============================
-PREMIUM FINISH
-==============================*/
-
-console.clear();
-
-console.log("%cSharma Ji Pede Ki Dukaan",
-"color:#7b0f18;font-size:22px;font-weight:bold;");
-
-console.log("%cPremium Website Loaded Successfully",
-"color:green;font-size:16px;");
-
-});
+document.querySelectorAll("img").for
